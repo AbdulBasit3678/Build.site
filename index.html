@@ -6,7 +6,9 @@
 <title>Build.Site – Premium Web Agency</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 /* ══ TOKENS ══ */
@@ -1186,6 +1188,12 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 }
 
 /* ══ PARTICLE CANVAS ══ */
+
+
+.slider-track{will-change:transform}
+.marquee-track{will-change:transform}
+#heroCanvas{will-change:contents}
+
 #heroCanvas{
   position:absolute;
   inset:0;
@@ -1426,7 +1434,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="browser-url"><i class="fa-solid fa-lock"></i><span>qbaestateagency.com</span></div>
       </div>
       <div class="browser-screen bs-1">
-        <img src="QBA (1).jpg.jpeg" alt="QBA Estate Agency" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        <img src="QBA (1).jpg.jpeg" alt="QBA Estate Agency" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
       </div>
     </div>
     <div class="portfolio-body">
@@ -1450,7 +1458,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="browser-url"><i class="fa-solid fa-lock"></i><span>marghzar.com</span></div>
       </div>
       <div class="browser-screen bs-8">
-        <img src="marghzar (1).jpg.jpeg" alt="Marghzar" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        <img src="marghzar (1).jpg.jpeg" alt="Marghzar" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
       </div>
     </div>
     <div class="portfolio-body">
@@ -1474,7 +1482,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="browser-url"><i class="fa-solid fa-lock"></i><span>humbleteam.com</span></div>
       </div>
       <div class="browser-screen bs-5">
-        <img src="humbleteam.jpg.jpeg" alt="Humble Team" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        <img src="humbleteam.jpg.jpeg" alt="Humble Team" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
       </div>
     </div>
     <div class="portfolio-body">
@@ -1601,7 +1609,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="browser-url"><i class="fa-solid fa-lock"></i><span>qbaestateagency.com</span></div>
       </div>
       <div class="browser-screen bs-1">
-        <img src="QBA (1).jpg.jpeg" alt="QBA Estate Agency" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        <img src="QBA (1).jpg.jpeg" alt="QBA Estate Agency" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
       </div>
     </div>
     <div class="portfolio-body">
@@ -1626,7 +1634,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="browser-url"><i class="fa-solid fa-lock"></i><span>rigidfitness.fit</span></div>
       </div>
       <div class="browser-screen bs-4">
-        <img src="Rigid (2).jpg.jpeg" alt="Rigid Fitness" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        <img src="Rigid (2).jpg.jpeg" alt="Rigid Fitness" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
       </div>
     </div>
     <div class="portfolio-body">
@@ -1650,7 +1658,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="browser-url"><i class="fa-solid fa-lock"></i><span>davidottaproductions.com</span></div>
       </div>
       <div class="browser-screen bs-10">
-        <img src="davidotta.jpg.jpeg" alt="David Otta Productions" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        <img src="davidotta.jpg.jpeg" alt="David Otta Productions" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
       </div>
     </div>
     <div class="portfolio-body">
@@ -1674,7 +1682,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="browser-url"><i class="fa-solid fa-lock"></i><span>marghzar.com</span></div>
       </div>
       <div class="browser-screen bs-8">
-        <img src="marghzar (1).jpg.jpeg" alt="Marghzar" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        <img src="marghzar (1).jpg.jpeg" alt="Marghzar" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
       </div>
     </div>
     <div class="portfolio-body">
@@ -1698,7 +1706,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="browser-url"><i class="fa-solid fa-lock"></i><span>amesainteriors.com.au</span></div>
       </div>
       <div class="browser-screen bs-6">
-        <img src="Amesa.jpg.jpeg" alt="Amesa Interiors" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        <img src="Amesa.jpg.jpeg" alt="Amesa Interiors" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
       </div>
     </div>
     <div class="portfolio-body">
@@ -1722,7 +1730,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="browser-url"><i class="fa-solid fa-lock"></i><span>chaletschamonix.com</span></div>
       </div>
       <div class="browser-screen bs-7">
-        <img src="chaletschmonix.jpg.jpeg" alt="Chalets Chamonix" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        <img src="chaletschmonix.jpg.jpeg" alt="Chalets Chamonix" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
       </div>
     </div>
     <div class="portfolio-body">
@@ -1746,7 +1754,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="browser-url"><i class="fa-solid fa-lock"></i><span>humbleteam.com</span></div>
       </div>
       <div class="browser-screen bs-5">
-        <img src="humbleteam.jpg.jpeg" alt="Humble Team" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        <img src="humbleteam.jpg.jpeg" alt="Humble Team" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
       </div>
     </div>
     <div class="portfolio-body">
@@ -1771,7 +1779,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="browser-url"><i class="fa-solid fa-lock"></i><span>canbury.io</span></div>
       </div>
       <div class="browser-screen bs-12">
-        <img src="canbury.png" alt="Canbury.io" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        <img src="canbury.png" alt="Canbury.io" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
       </div>
     </div>
     <div class="portfolio-body">
@@ -1795,7 +1803,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <div class="browser-url"><i class="fa-solid fa-lock"></i><span>yourstock24global.com</span></div>
       </div>
       <div class="browser-screen bs-3">
-        <img src="Yourstock24.jpg.jpeg" alt="YourStock24" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        <img src="Yourstock24.jpg.jpeg" alt="YourStock24" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
       </div>
     </div>
     <div class="portfolio-body">
@@ -2673,7 +2681,7 @@ function toggleChat(){chatOpen=!chatOpen;chatWindow.classList.toggle('hidden',!c
 
 // SCROLL ANIMATIONS
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}});},{threshold:0.08});
-document.querySelectorAll('.svc-preview-card,.portfolio-card,.process-item,.about-card,.case-study-card,.faq-item').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(18px)';el.style.transition='opacity 0.55s ease,transform 0.55s ease,border-color 0.3s,box-shadow 0.3s';obs.observe(el);});
+document.querySelectorAll('.process-item,.about-card,.case-study-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(18px)';el.style.transition='opacity 0.55s ease,transform 0.55s ease,border-color 0.3s,box-shadow 0.3s';obs.observe(el);});
 
 // ══ HERO PARTICLES + TYPING + GLITCH ══
 (function(){
@@ -2683,7 +2691,7 @@ document.querySelectorAll('.svc-preview-card,.portfolio-card,.process-item,.abou
   if(!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H, particles = [], animFrame;
-  const COUNT = 70;
+  const COUNT = window.innerWidth < 768 ? 30 : 50;
   const ACCENT = '20,168,0';
 
   function resize(){
@@ -2716,7 +2724,7 @@ document.querySelectorAll('.svc-preview-card,.portfolio-card,.process-item,.abou
         const dx=particles[i].x-particles[j].x;
         const dy=particles[i].y-particles[j].y;
         const d=Math.sqrt(dx*dx+dy*dy);
-        if(d<130){
+        if(d<110){
           ctx.beginPath();
           ctx.strokeStyle=`rgba(${ACCENT},${0.12*(1-d/130)})`;
           ctx.lineWidth=0.7;
@@ -2914,7 +2922,7 @@ function toggleProject(id){
 
     const ctx = canvas.getContext('2d');
     let W, H, particles = [], raf;
-    const COUNT = 50;
+    const COUNT = window.innerWidth < 768 ? 20 : 35;
     const ACCENT = '20,168,0';
 
     function resize(){
@@ -2945,7 +2953,7 @@ function toggleProject(id){
           const dx=particles[i].x-particles[j].x;
           const dy=particles[i].y-particles[j].y;
           const d=Math.sqrt(dx*dx+dy*dy);
-          if(d<110){
+          if(d<90){
             ctx.beginPath();
             ctx.strokeStyle=`rgba(${ACCENT},${0.1*(1-d/110)})`;
             ctx.lineWidth=0.6;
