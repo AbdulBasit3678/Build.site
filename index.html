@@ -30,7 +30,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;line-height:1.65;overflow-x:hidden;transition:background var(--t) var(--ease),color var(--t) var(--ease)}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;line-height:1.65;overflow-x:hidden}
 h1,h2,h3,h4,h5{font-family:'Plus Jakarta Sans',sans-serif;line-height:1.12}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
@@ -2122,10 +2122,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   </div>
 </section>
 
-
-
 </div><!-- /page-work -->
-
 
 <!-- ════════════════════════════════════
      PAGE: SERVICES
@@ -2477,7 +2474,7 @@ function showPage(name){
 
 // NAV SCROLL
 const navbar=document.getElementById('navbar');
-window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>40));
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>40),{passive:true});
 
 // THEME
 let dark=true;
@@ -2680,8 +2677,21 @@ function quickSend(t){chatInput.value=t;sendChat();}
 function toggleChat(){chatOpen=!chatOpen;chatWindow.classList.toggle('hidden',!chatOpen);chatFab.classList.toggle('open',chatOpen);chatFab.innerHTML=chatOpen?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-comment-dots"></i>';}
 
 // SCROLL ANIMATIONS
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}});},{threshold:0.08});
-document.querySelectorAll('.process-item,.about-card,.case-study-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(18px)';el.style.transition='opacity 0.55s ease,transform 0.55s ease,border-color 0.3s,box-shadow 0.3s';obs.observe(el);});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.process-item,.about-card,.case-study-card').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(18px)';
+  el.style.transition='opacity 0.5s ease,transform 0.5s ease';
+  obs.observe(el);
+});
 
 // ══ HERO PARTICLES + TYPING + GLITCH ══
 (function(){
@@ -2763,6 +2773,16 @@ document.querySelectorAll('.process-item,.about-card,.case-study-card').forEach(
   }
 
   window.addEventListener('resize', startParticles);
+
+  // pause canvas when hero not visible
+const heroObserver = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) startParticles();
+    else cancelAnimationFrame(animFrame);
+  });
+},{threshold:0.1});
+const heroSection = document.getElementById('home-hero');
+if(heroSection) heroObserver.observe(heroSection);
 
   // ── TYPING + GLITCH ──
   const titleEl = document.getElementById('heroTitle');
