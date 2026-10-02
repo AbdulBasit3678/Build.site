@@ -341,11 +341,13 @@ section{padding:9rem 5%}
 .process-pill{background:var(--bg3);border:1px solid var(--border);padding:4px 12px;border-radius:99px;font-size:0.75rem;color:var(--muted2)}
 
 /* ══ TESTIMONIALS ══ */
-.slider-outer{overflow:hidden;position:relative}
+
+.slider-outer{overflow:hidden;position:relative;touch-action:pan-y}
+.slider-track{display:flex;gap:1.5rem;width:max-content;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);touch-action:pan-y}
+.review-card{touch-action:pan-y}
 .slider-outer::before,.slider-outer::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
 .slider-outer::before{left:0;background:linear-gradient(90deg,var(--bg2),transparent)}
 .slider-outer::after{right:0;background:linear-gradient(-90deg,var(--bg2),transparent)}
-.slider-track{display:flex;gap:1.5rem;width:max-content;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1)}
 .review-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2.25rem;width:380px;flex-shrink:0;position:relative;transition:border-color var(--t)}
 .review-card.active{border-color:rgba(20,168,0,0.3)}
 .review-stars{display:flex;gap:3px;margin-bottom:1.25rem;color:#f59e0b;font-size:0.88rem}
@@ -744,7 +746,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:5rem 5% 2
 .page-header-inner p{font-size:1rem;color:var(--muted2);max-width:560px;line-height:1.75}
 
 /* ══ TOUCH & MOBILE UX ══ */
-.slider-track{-webkit-overflow-scrolling:touch;touch-action:pan-x}
+.slider-track{-webkit-overflow-scrolling:touch;touch-action:pan-y}
 .service-tab,.cs-header,.faq-q,.transform-tab{-webkit-tap-highlight-color:transparent}
 .btn-primary,.btn-outline,.nav-cta,.quick-btn,.social-btn{-webkit-tap-highlight-color:transparent}
 input,select,textarea{-webkit-appearance:none;appearance:none}
@@ -2575,6 +2577,34 @@ function initSlider(){
   window.addEventListener('resize',()=>goTo(0));
 }
 initSlider();
+
+
+// TESTIMONIAL SWIPE
+(function(){
+  const outer = document.querySelector('.slider-outer');
+  if(!outer) return;
+  let startX=0, startY=0, isHorizontal=false;
+
+  outer.addEventListener('touchstart',e=>{
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    isHorizontal = false;
+  },{passive:true});
+
+  outer.addEventListener('touchmove',e=>{
+    const dx = Math.abs(e.touches[0].clientX - startX);
+    const dy = Math.abs(e.touches[0].clientY - startY);
+    if(dx > dy && dx > 10) isHorizontal = true;
+  },{passive:true});
+
+  outer.addEventListener('touchend',e=>{
+    if(!isHorizontal) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx) < 40) return;
+    if(dx < 0) document.getElementById('nextBtn').click();
+    else document.getElementById('prevBtn').click();
+  },{passive:true});
+})();
 
 // CHATBOT
 const chatWindow=document.getElementById('chatWindow');
