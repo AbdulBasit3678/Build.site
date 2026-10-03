@@ -2572,9 +2572,16 @@ function initSlider(){
   function goTo(i){cards.forEach(c=>c.classList.remove('active'));cur=Math.max(0,Math.min(i,total-vis()));cards[cur].classList.add('active');track.style.transform=`translateX(-${cur*cardW()}px)`;document.querySelectorAll('.dot').forEach((d,j)=>d.classList.toggle('active',j===cur));resetTimer();}
   document.getElementById('prevBtn').onclick=()=>goTo(cur<=0?total-vis():cur-1);
   document.getElementById('nextBtn').onclick=()=>goTo(cur>=total-vis()?0:cur+1);
-  function resetTimer(){clearInterval(timer);timer=setInterval(()=>goTo(cur>=total-vis()?0:cur+1),4500);}
-  resetTimer();
-  window.addEventListener('resize',()=>goTo(0));
+function resetTimer(){clearInterval(timer);timer=setInterval(()=>goTo(cur>=total-vis()?0:cur+1),4500);}
+resetTimer();
+window.addEventListener('resize',()=>goTo(0));
+
+// pause on touch hold, resume on release
+const sliderEl = document.querySelector('.slider-outer');
+if(sliderEl){
+  sliderEl.addEventListener('touchstart',()=>clearInterval(timer),{passive:true});
+  sliderEl.addEventListener('touchend',()=>resetTimer(),{passive:true});
+}
 }
 initSlider();
 
